@@ -1,8 +1,8 @@
-import { filteredTask } from './task-list-utils'
-import { TaskType } from '../../main-types'
+import { filteredTask } from '../components/task-list/task-list-utils'
+import { ITask } from '../main-types'
 
-describe('filteredTask', () => {
-	let initialTaskList: TaskType[] | null = null
+describe('filtered-task', () => {
+	let initialTaskList: ITask[] | null = null
 	beforeEach(() => {
 		initialTaskList = [
 			{ id: '1', title: 'Bread', completed: false },

@@ -1,6 +1,8 @@
 import { ChangeEvent, FC, KeyboardEvent, useState } from 'react'
+import SendIcon from '@mui/icons-material/Send'
+import { useDispatch } from 'react-redux'
+import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 
-import { Box, Button, TextField, Typography } from '@mui/material'
 import { createTaskAC } from '../../main-actions'
 import {
 	EMPTY_FIELD_ERROR,
@@ -8,9 +10,7 @@ import {
 	MIN_LENGTH,
 	TEXT_FIELD_ERROR,
 	TEXT_FIELD_TITLE
-} from './text-field-constants'
-import SendIcon from '@mui/icons-material/Send'
-import { useDispatch } from 'react-redux'
+} from './create-task-field-constants'
 
 export const CreateTaskFieldComponent: FC = () => {
 	const dispatch = useDispatch()
@@ -34,7 +34,7 @@ export const CreateTaskFieldComponent: FC = () => {
 	}
 
 	return (
-		<>
+		<Stack spacing={1} marginBottom={1}>
 			<TextField
 				value={value}
 				onChange={handleChangeValue}
@@ -64,6 +64,6 @@ export const CreateTaskFieldComponent: FC = () => {
 					</Button>
 				)}
 			</Box>
-		</>
+		</Stack>
 	)
 }

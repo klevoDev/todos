@@ -1,12 +1,19 @@
 import { v4 } from 'uuid'
 
-import { FilterType } from '../../components/todo-list/todo-list-types'
+import { TFilter } from 'core/types/main'
 
-export const changeTaskStatusAC = (taskId: string, isDone: boolean) => ({
+export const changeFilterAC = (filter: TFilter) => ({
+	type: 'main/CHANGE-FILTER' as const,
+	payload: {
+		filter
+	}
+})
+
+export const changeTaskStatusAC = (taskId: string, completed: boolean) => ({
 	type: 'main/CHANGE-TASK-STATUS' as const,
 	payload: {
 		taskId,
-		isDone
+		completed
 	}
 })
 
@@ -18,16 +25,6 @@ export const createTaskAC = (title: string) => ({
 	}
 })
 
-export const deleteTaskAC = (taskId: string) => ({
-	type: 'main/DELETE-TASK' as const,
-	payload: {
-		taskId
-	}
-})
-
-export const changeFilterAC = (filter: FilterType) => ({
-	type: 'main/CHANGE-FILTER' as const,
-	payload: {
-		filter
-	}
+export const deleteCompetedTasksAC = () => ({
+	type: 'main/DELETE-COMPLETED-TASKS' as const
 })

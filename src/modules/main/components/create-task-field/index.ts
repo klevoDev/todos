@@ -1,1 +1,1 @@
-export { CreateTaskFieldComponent as CreateTaskField } from './text-field-component'
+export { CreateTaskFieldComponent as CreateTaskField } from './create-task-field-component'

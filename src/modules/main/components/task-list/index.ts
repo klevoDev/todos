@@ -1,1 +1,1 @@
-export { TaskComponent as Task } from './task-component'
+export { TaskListComponent as TaskList } from './task-list-component'

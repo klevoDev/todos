@@ -1,17 +1,13 @@
 import React from 'react'
 
-import { Main } from './modules/main'
+import { Main } from 'modules/main'
 
-import './App.css'
+import './index.css'
 
-function App() {
+export const App = () => {
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<Main />
-			</header>
+			<Main />
 		</div>
 	)
 }
-
-export default App

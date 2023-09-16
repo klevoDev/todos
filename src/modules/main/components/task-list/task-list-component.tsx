@@ -1,31 +1,19 @@
-import { ChangeEvent, FC } from 'react'
-import { Checkbox, ListItemButton } from '@mui/material'
-import { useDispatch } from 'react-redux'
+import { FC } from 'react'
+import { List } from '@mui/material'
 
-import { changeTaskStatusAC } from '../../main-actions'
 import { getFilter, getTasks } from '../../main-selectors'
 import { useAppSelector } from 'core/hooks/redux'
-import { filteredTask } from '../todo-list/todo-list-utils'
+import { filteredTask } from './task-list-utils'
+import { Task } from '../task'
 
-export const TaskComponent: FC = () => {
-	const dispatch = useDispatch()
-
-	let tasks = useAppSelector(getTasks)
+export const TaskListComponent: FC = () => {
+	const tasks = useAppSelector(getTasks)
 	const filter = useAppSelector(getFilter)
 
 	const taskArray = filteredTask(tasks, filter)
 
 	const taskList = taskArray.map((task) => {
-		const changeTaskStatus = (event: ChangeEvent<HTMLInputElement>) => {
-			dispatch(changeTaskStatusAC(task.id, event.currentTarget.checked))
-		}
-
-		return (
-			<ListItemButton key={task.id}>
-				<Checkbox checked={task.completed} onChange={changeTaskStatus} />
-				{task.title}
-			</ListItemButton>
-		)
+		return <Task key={task.id} {...task} />
 	})
-	return <>{taskList}</>
+	return <List>{taskList}</List>
 }

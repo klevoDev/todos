@@ -1,10 +1,10 @@
 import { TFilter } from 'core/types/main'
-import { TaskType } from 'modules/main/main-types'
+import { ITask } from '../../main-types'
 
 export const filteredTask = (
-	tasks: TaskType[] | null | undefined,
+	tasks: ITask[] | null | undefined,
 	filter: TFilter
-): TaskType[] => {
+): ITask[] => {
 	if (!tasks) {
 		return []
 	}
